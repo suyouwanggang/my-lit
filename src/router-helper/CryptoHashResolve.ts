@@ -1,6 +1,6 @@
 import * as CryptoJS  from 'crypto-js';
 import {HashHelper,ResovlePathInterface} from './path.helper';
-const secrityKey='wanggang`5566&easytrack';
+const secrityKey='wanggang`zhengming&5566&easytrack';
 const secrikyObj={
     secrityKey:secrityKey,
 }
