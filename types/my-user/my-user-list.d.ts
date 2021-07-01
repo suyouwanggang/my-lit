@@ -6,11 +6,13 @@ export default class MyUserList extends LitElement {
     location?: string;
     url: string;
     userID?: string;
+    private jsonData;
     constructor();
     firstUpdated(map: any): void;
     disconnectedCallback(): void;
     render(): import("lit-element").TemplateResult;
-    private goTo;
+    private clickGoTo;
+    private goButtonTo;
 }
 declare global {
     interface HTMLElementTagNameMap {

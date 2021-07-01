@@ -1,5 +1,6 @@
 import { LitElement, html, customElement, property, css } from 'lit-element'
 import imgURL from '../assets/logo.png';
+import hashRouter  from '../router-helper/hash.Router';
 /**
  * An example element.
  *
@@ -39,7 +40,8 @@ export default class MyElement extends LitElement  {
   }
 
   private _onClick() {
-    this.count++
+    this.count++;
+    hashRouter.toHashPath('/user/list/2',{id:Math.random()})
   }
 
   foo(): string {

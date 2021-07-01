@@ -100,6 +100,9 @@ export  class HashRouter {
             this.addRouterItem(routerItems);
         }
     }
+    public  refreshHash(){
+        this.hashHandler();
+    }
     /**
      * 存储所有路由规则
      */
@@ -236,6 +239,16 @@ export  class HashRouter {
     getCurrentPath() {
        let hash = decodeURI(window.location.hash);
        return this.pathResovle.resolvePath(hash);
+    }
+    /**
+     * 将url 和 jsonData 转为hash 路径,并且进行导航
+     * @param url 路径,例如/user/list, /user/1000, /user/100?id=2223,
+     * @param jsonData 参数 例如 {a:'1',b:'2'}
+     */
+    toHashPath(url:string,jsonData?:any){
+        const {path, queryData}=HashHelper.defaultResove.resolvePath(url);
+        jsonData=Object.assign({},queryData,jsonData);
+        window.location.hash=this.pathResovle.toPath(path,jsonData);
     }
 };
 

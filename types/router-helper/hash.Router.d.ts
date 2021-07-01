@@ -1,3 +1,4 @@
+import { ResovlePathInterface } from './path.helper';
 export declare const HASHROUTER_EVENT = "hash-router-change";
 /**
  * 申明当前路由的上下文数据
@@ -6,10 +7,10 @@ export declare type contextData = {
     path: string; /***路由路径*/
     queryString?: string; /**查询字符串 */
     queryData: {
-        [key in string]: string | number;
+        [key in string]: string | string[];
     };
     pathData: {
-        [key in string]: string | number;
+        [key in string]: string;
     };
 };
 /**
@@ -31,6 +32,9 @@ export declare class HashRouter {
     private _lastRouterItem?;
     private _currentHashData?;
     private _currentRouterItem?;
+    private _pathResovle;
+    set pathResovle(resolve: ResovlePathInterface);
+    get pathResovle(): ResovlePathInterface;
     /**
      * 获取当前路由数据
      */
@@ -49,6 +53,7 @@ export declare class HashRouter {
     get lastRouterItem(): RouterItem | undefined;
     private hashHandler;
     constructor(...routerItems: RouterItem[]);
+    refreshHash(): void;
     /**
      * 存储所有路由规则
      */
@@ -94,9 +99,15 @@ export declare class HashRouter {
         path: string;
         queryString: string;
         queryData: {
-            [x: string]: string;
+            [key: string]: string | string[];
         };
     };
+    /**
+     * 将url 和 jsonData 转为hash 路径,并且进行导航
+     * @param url 路径,例如/user/list, /user/1000, /user/100?id=2223,
+     * @param jsonData 参数 例如 {a:'1',b:'2'}
+     */
+    toHashPath(url: string, jsonData?: any): void;
 }
 declare const hashRouter: HashRouter;
 export default hashRouter;

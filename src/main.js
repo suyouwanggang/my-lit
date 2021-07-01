@@ -2,9 +2,10 @@
 
 import 'lit-element';
 import hashRouter  from './router-helper/hash.Router';
+import  cryptoHashResovle from './router-helper/CryptoHashResolve';
 var app=document.getElementById('app');
 
-
+hashRouter.pathResovle=cryptoHashResovle;
 /**
  * 
  * @param {import('./router-helper/hash.Router').contextData} ctx 
@@ -12,6 +13,7 @@ var app=document.getElementById('app');
  */
 const handler=(ctx,last)=>{
     var item=hashRouter.currentRouterItem;
+    
     var name=item.name;
     if(name){
         if(name=='my-element'){

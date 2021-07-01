@@ -136,7 +136,7 @@ const getPathNames=(pattern:string,path:string)=>{
      * @param url 
      * @param jsonData 
      */
-    toPath(url:string,jsonData:JSON):string;
+    toPath(url:string,jsonData?:JSON):string;
 };
 const defaultResove:ResovlePathInterface={
     resolvePath:(hash:string)=>{
@@ -163,7 +163,7 @@ const defaultResove:ResovlePathInterface={
     },
     toPath:(url,jsonData)=>{
         const queryString=HashHelper.toQueryString(jsonData);
-        return '#/'+HashHelper.stripExtraTrailingSlash(url)+(queryString?('?'+queryString):'');
+        return HashHelper.stripExtraTrailingSlash(url)+(queryString?('?'+queryString):'');
     }
 }
 
