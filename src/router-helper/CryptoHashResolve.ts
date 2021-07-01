@@ -1,6 +1,5 @@
 import * as CryptoJS  from 'crypto-js';
-import  {ResovlePathInterface  } from './path.helper';
-import {HashHelper} from './path.helper';
+import {HashHelper,ResovlePathInterface} from './path.helper';
 const secrityKey='wanggang`5566&easytrack';
 const secrikyObj={
     secrityKey:secrityKey,
@@ -19,7 +18,7 @@ export const secrityKeyObj={
 /**
  * crypto-js AES 加密 hash 路径
  */
-const   cryptoHashResovle:ResovlePathInterface|{[key in string]:string}={
+const   cryptoHashResovle:ResovlePathInterface={
     resolvePath(hash:string){
         if (hash.length>1&&hash.substr(0,1)=='#') { 
             hash=hash.slice(1); //#,去掉
