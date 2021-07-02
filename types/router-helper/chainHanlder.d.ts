@@ -8,7 +8,7 @@ export default class ChainHanlder {
      * 增加处理器
      * @param item 待添加处理器
      */
-    addChain(item: chaianInter): void;
+    addHanlder(item: chaianInter): void;
     private currentIndex;
     private currentResult;
     /**

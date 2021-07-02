@@ -114,7 +114,7 @@ export  class HashRouter {
      * @param pattern 
      * @returns 
      */
-    public getRouterItem(pattern:string){
+    public getRouterItemByPath(pattern:string){
         return this.routerPatternMap[pattern];
     }
     /**
@@ -143,35 +143,35 @@ export  class HashRouter {
 
     private   excuteRouterItem(item:RouterItem) {
         const currentPath=this.getCurrentPath();
-        const currentData=Object.freeze({
+        const currentData={
             ...currentPath,
             pathData:HashHelper.getPathNames(item.path,currentPath.path),
-        });
-        this._lastHashData=this.currentHashData;
+        };
+        this._lastHashData= this.currentHashData;
         this._lastRouterItem=this.currentRouterItem;
         this._currentHashData=currentData;
         this._currentRouterItem=item;
         const handler=new ChainHanlder();
         if(item.before){
-            handler.addChain(item.before.bind(item));
+            handler.addHanlder(item.before.bind(item));
         }
         if(item.excute){
-            handler.addChain(item.excute.bind(item));
+            handler.addHanlder(item.excute.bind(item));
         }if(item.excute){
-            handler.addChain(item.excute.bind(item));
+            handler.addHanlder(item.excute.bind(item));
         }if(item.after){
-            handler.addChain(item.after.bind(item));
+            handler.addHanlder(item.after.bind(item));
         }
         handler.excute(currentData,this.lastHashData);
     }
     /**
      * 
-     * @param newRouterItems 添加路由规则项
+     * @param newRouterItems 添加路由规则项，如果路径已经存在的，则替换。
      */
     public addRouterItem(newRouterItems:RouterItem[]):void {
         for(let r of newRouterItems){
             let p=this.routerPatternMap[r.path];
-            if(p){//已经存在了
+            if(p){//已经存在了,则删除原来的，然后替换
                 let index=this.routerItems.indexOf(p);
                 if(index>=0){
                     let old=this.routerItems[index];

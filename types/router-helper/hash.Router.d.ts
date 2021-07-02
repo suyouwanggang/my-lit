@@ -65,7 +65,7 @@ export declare class HashRouter {
      * @param pattern
      * @returns
      */
-    getRouterItem(pattern: string): RouterItem;
+    getRouterItemByPath(pattern: string): RouterItem;
     /**
      * 根据name 查找路由匹配规则
      * @param name
@@ -76,7 +76,7 @@ export declare class HashRouter {
     private excuteRouterItem;
     /**
      *
-     * @param newRouterItems 添加路由规则项
+     * @param newRouterItems 添加路由规则项，如果路径已经存在的，则替换。
      */
     addRouterItem(newRouterItems: RouterItem[]): void;
     /**

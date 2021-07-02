@@ -12,7 +12,7 @@ export default class ChainHanlder{
      * 增加处理器
      * @param item 待添加处理器 
      */
-    public addChain(item:chaianInter){
+    public addHanlder(item:chaianInter){
         this._chainList.push(item);
     }
     private currentIndex=0;

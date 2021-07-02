@@ -9,7 +9,5 @@ export declare const secrityKeyObj: {
 /**
  * crypto-js AES 加密 hash 路径
  */
-declare const cryptoHashResovle: ResovlePathInterface | {
-    [key in string]: string;
-};
+declare const cryptoHashResovle: ResovlePathInterface;
 export default cryptoHashResovle;
