@@ -3,8 +3,8 @@
 import 'lit-element';
 import hashRouter  from './router-helper/hash.Router';
 import  cryptoHashResovle from './router-helper/CryptoHashResolve';
+const my_userModules=import.meta.globEager('./my-user/*.ts');
 var app=document.getElementById('app');
-
 hashRouter.pathResovle=cryptoHashResovle;
 /**
  * 
@@ -16,7 +16,7 @@ const handler=(ctx,last)=>{
     
     var name=item.name;
     if(item.require&&item.folder){
-        import (`./${item.folder}/${item.require}.ts`);
+       // import (`./${item.folder}/${item.require}.ts`);
     }
     if(name){
         var el= document.createElement(name);
