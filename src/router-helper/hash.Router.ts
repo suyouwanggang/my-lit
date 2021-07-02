@@ -70,6 +70,7 @@ export  class HashRouter {
     
     private hashHandler: () => void;
     constructor(...routerItems:RouterItem[]) {
+        console.log(`init hash router  `);
         this.hashHandler = () => {
             let fundItem=this.findMathRouterItem();
             let detailObj={

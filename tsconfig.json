@@ -15,7 +15,8 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vite/client"]
   },
   "include": ["src/**/*.ts", "src/main.js", "src/router.js"],
   "exclude": []
