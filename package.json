@@ -17,14 +17,14 @@
   },
   "dependencies": {
     "crypto-js": "^4.0.0",
-    "lit-element": "^2.4.0"
-    
+    "lit-element": "^2.4.0",
+    "path-to-regexp": "^2.4.0"
   },
   "devDependencies": {
-    "rollup-plugin-minify-html-literals": "^1.2.6",
     "@types/crypto-js": "^4.0.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.5",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
     "typescript": "^4.3.2",
     "vite": "^2.3.8"
   }

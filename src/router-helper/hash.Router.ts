@@ -146,7 +146,7 @@ export  class HashRouter {
         const currentPath=this.getCurrentPath();
         const currentData={
             ...currentPath,
-            pathData:HashHelper.getPathNames(item.path,currentPath.path),
+            pathData:HashHelper.getPathNames(item.path,currentPath.path)||{},
         };
         this._lastHashData= this.currentHashData;
         this._lastRouterItem=this.currentRouterItem;

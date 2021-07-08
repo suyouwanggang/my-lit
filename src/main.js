@@ -5,7 +5,7 @@ import hashRouter  from './router-helper/hash.Router';
 import  cryptoHashResovle from './router-helper/CryptoHashResolve';
 const my_userModules=import.meta.globEager('./my-user/*.ts');
 var app=document.getElementById('app');
-hashRouter.pathResovle=cryptoHashResovle;
+//hashRouter.pathResovle=cryptoHashResovle; //hash加密 路由
 /**
  * 
  * @param {import('./router-helper/hash.Router').contextData} ctx 
@@ -29,5 +29,6 @@ hashRouter.addRouterItem([
     {path:'/',excute:handler,name:'my-element',require:'my-element',folder:'my-user'},
     {path:'/user/list',excute:handler,name:'my-user-list',require:'my-user-list',folder:'my-user'},
     {path:'/user/list/:id',excute:handler,name:'my-user-list',require:'my-user-list',folder:'my-user'},
+    {path:'/user/listList/:name(a\\d+)',excute:handler,name:'my-user-list',require:'my-user-list',folder:'my-user'},
 ])
 
